@@ -1,0 +1,13 @@
+User Input (vCPU, Memory, Region, OS, Duration, Type)
+        │
+        ▼
+Candidate Generator (filter instance types)
+        │
+        ▼
+Price Fetcher (your EC2 pricing tool logic)
+        │
+        ▼
+Scoring Engine (rank by price + performance)
+        │
+        ▼
+Recommendation Output (top 3 instances + pricing tier)
