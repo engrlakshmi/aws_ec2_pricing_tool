@@ -77,21 +77,17 @@ Candidate filtering – Filters EC2 instances matching your technical needs.
 
 Cost evaluation – Compares On-Demand, Savings Plans, and Reserved Instances to find the cheapest suitable option.
 
-Top recommendations – Displays the top 3 instances with:
+Top recommendations – 
 
-Instance type
+Displays the top 3 instances with:
 
-vCPU & RAM
+1. Instance type
 
-Hourly cost (On-Demand & SP)
+2. vCPU & RAM
 
-Recommended pricing model
+3. Hourly cost (On-Demand & SP)
 
-Estimated monthly cost
+4. Recommended pricing model
 
-Example Output:
+5. Estimated monthly cost
 
-Instance Type	vCPU	RAM	On-Demand $/hr	SP (1yr) $/hr	Recommended Model	Est. Monthly Cost
-t3a.small	2	2GB	0.0190	0.0130	1yr SP	$9.36
-t3.small	2	2GB	0.0208	0.0140	1yr SP	$10.08
-m6g.medium	1	4GB	0.0255	0.0170	1yr SP	$12.24
