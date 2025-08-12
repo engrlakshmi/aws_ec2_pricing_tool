@@ -1,41 +1,97 @@
 
-# AWS EC2 Pricing Tool
+AWS EC2 Pricing Tool and Recommendation System
+This Streamlit-based web app lets you compare AWS EC2 pricing options across:
 
-This Streamlit-based web app allows users to **compare AWS EC2 pricing options** across:
-- 💰 **General Compute and EC2 Savings Plans**
-- 📊 **On-Demand & Reserved Instances**
+💰 General Compute & EC2 Savings Plans
 
-It provides flexible filtering, real-time data fetching via AWS Pricing APIs, and supports CSV download for further analysis.
+📊 On-Demand & Reserved Instances
 
----
+It provides flexible filtering, real-time AWS Pricing API queries, CSV downloads, and instance recommendations based on workload requirements.
 
-## 🚀 Features
+🚀 Features
+Dynamic UI – Instantly switch between Savings Plan and On-Demand filters with a single click.
 
-- **Dynamic UI**: Switch between Savings Plan and On-Demand pricing filters with a single click.
-- **Multi-filter Search**: Filter by region, instance type, family, OS, term, tenancy, purchase option, etc.
-- **Savings Plan vs On-Demand Comparison**
-- **Paginated Results** for large datasets
-- **Downloadable CSV output**
-- **Responsive UI** with helpful examples for each input
 
----
+Multi-filter Search – Filter by region, instance type, family, OS, term, tenancy, purchase option, etc.
 
-## 🧩 Tech Stack
+Savings Plan vs. On-Demand Comparison
 
-| Component        | Tech                               |
-|------------------|-------------------------------------|
-| UI Framework     | [Streamlit](https://streamlit.io)   |
-| Cloud Pricing    | AWS Pricing API (via `boto3`)       |
-| Data Processing  | Python, Pandas                      |
-| Export Formats   | CSV                                 |
+Paginated Results – Smooth navigation through large datasets
 
----
+Downloadable CSV Output
 
-## 📦 Setup Instructions
+Responsive UI – Examples provided for each input
 
-### 1. Clone this repo
+💡 Recommendation System – Suggests the best EC2 instance types and pricing models for your workload.
 
-```bash
-git clone link
+🧩 Tech Stack
+Component	Tech
+UI Framework	Streamlit
+Cloud Pricing	AWS Pricing API (via boto3)
+Data Processing	Python, Pandas
+Export Formats	CSV
 
-Once you run the code refresh first and then use radio buttons. modify this
+📦 Setup Instructions
+1. Clone this repo
+bash
+Copy
+Edit
+git clone <repo-link>
+cd aws_ec2_pricing_tool
+2. Install dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+3. Configure AWS credentials
+Make sure your AWS CLI is configured with valid credentials:
+
+bash
+Copy
+Edit
+aws configure
+4. Run the app
+bash
+Copy
+Edit
+streamlit run app.py
+Important: After the app loads in your browser, refresh the page once before using the radio buttons to ensure correct functionality.
+
+📜 Usage Notes
+Requires AWS credentials with access to the Pricing API
+
+Works for all public AWS regions
+
+Supports both 1-year and 3-year term comparisons
+
+CSV export includes both pricing models for offline analysis
+
+🔮 Recommendation System
+The built-in Recommendation System analyzes your workload requirements and suggests the most cost-effective EC2 configuration.
+
+How it works:
+
+Input your workload specs – vCPU, memory, OS, region, expected usage duration, and burst requirements.
+
+Candidate filtering – Filters EC2 instances matching your technical needs.
+
+Cost evaluation – Compares On-Demand, Savings Plans, and Reserved Instances to find the cheapest suitable option.
+
+Top recommendations – Displays the top 3 instances with:
+
+Instance type
+
+vCPU & RAM
+
+Hourly cost (On-Demand & SP)
+
+Recommended pricing model
+
+Estimated monthly cost
+
+Example Output:
+
+Instance Type	vCPU	RAM	On-Demand $/hr	SP (1yr) $/hr	Recommended Model	Est. Monthly Cost
+t3a.small	2	2GB	0.0190	0.0130	1yr SP	$9.36
+t3.small	2	2GB	0.0208	0.0140	1yr SP	$10.08
+m6g.medium	1	4GB	0.0255	0.0170	1yr SP	$12.24
