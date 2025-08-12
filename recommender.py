@@ -6,14 +6,14 @@ import logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-# Sample instance type info – Replace with full EC2 specs list
+
 INSTANCE_DB = [
     {"instanceType": "t3.micro", "vCPU": 2, "memoryGiB": 1, "burstable": True},
     {"instanceType": "t3.small", "vCPU": 2, "memoryGiB": 2, "burstable": True},
     {"instanceType": "t3a.small", "vCPU": 2, "memoryGiB": 2, "burstable": True},
     {"instanceType": "m5.large", "vCPU": 2, "memoryGiB": 8, "burstable": False},
     {"instanceType": "m6g.medium", "vCPU": 1, "memoryGiB": 4, "burstable": False},
-    # Add more from ec2_instance_info.json or boto3 describe_instance_types
+    
 ]
 
 def recommend_instances(vcpu_required, memory_required, os, region, usage_months, burstable_ok=True):
